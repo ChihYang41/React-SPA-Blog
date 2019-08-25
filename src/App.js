@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import './bootstrap.min.css'
 import './App.css';
+import Nav from './nav/nav.js';
+import About from './about/about.js';
+import Home from './home/home.js';
+import Post from './post/post.js'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isFocus: 'Home',
+    }
+  }
+
+  handleActive = (page) => {
+    this.setState({
+      isFocus: page
+    })
+  }
+  render() {
+    const { isFocus } = this.state;
+    return (
+      <div className="App">
+        <Nav handleActive={this.handleActive}/>
+        <div className="main-page">
+          {isFocus === 'Home' && <Home />}
+          {isFocus === 'Posts' && <Post />}
+          {isFocus === 'About' && <About />}
+        </div>
+      </div>
+    );
+  }
+
 }
 
 export default App;
