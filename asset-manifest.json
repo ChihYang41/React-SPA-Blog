@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/React-SPA-Blog/static/css/main.78825fe5.chunk.css",
+    "main.js": "/React-SPA-Blog/static/js/main.a15a7134.chunk.js",
+    "main.js.map": "/React-SPA-Blog/static/js/main.a15a7134.chunk.js.map",
+    "runtime~main.js": "/React-SPA-Blog/static/js/runtime~main.6e55c24d.js",
+    "runtime~main.js.map": "/React-SPA-Blog/static/js/runtime~main.6e55c24d.js.map",
+    "static/js/2.ea5cfc4e.chunk.js": "/React-SPA-Blog/static/js/2.ea5cfc4e.chunk.js",
+    "static/js/2.ea5cfc4e.chunk.js.map": "/React-SPA-Blog/static/js/2.ea5cfc4e.chunk.js.map",
+    "index.html": "/React-SPA-Blog/index.html",
+    "precache-manifest.ceef5d462d042b89f59bb9da54f1eefd.js": "/React-SPA-Blog/precache-manifest.ceef5d462d042b89f59bb9da54f1eefd.js",
+    "service-worker.js": "/React-SPA-Blog/service-worker.js",
+    "static/css/main.78825fe5.chunk.css.map": "/React-SPA-Blog/static/css/main.78825fe5.chunk.css.map"
+  }
+}
