@@ -6,7 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 
 function Title(props) {
   return (
-    <Link className="navbar-brand" to="/">Blog</Link>
+    <Link className="navbar-brand" to="/React-SPA-Blog/">Blog</Link>
   )
 }
 
