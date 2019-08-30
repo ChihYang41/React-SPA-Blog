@@ -2,14 +2,15 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 20px;
+  justify-content: center;
+  margin: 20px auto;
 }
 
 .card {
   width: 30%;
   margin-right: 20px;
   transition: 0.3s all;
+  height: 300px;
 }
 
 .card:hover {
@@ -21,7 +22,18 @@
   font-size: 24px;
 }
 
-.post-list button {
+.card-text {
+  overflow : hidden;
+  text-overflow : ellipsis;
+  white-space : nowrap;
+}
+
+.post-list a {
   margin: 20px auto;
-  text-align: center;
+}
+
+@media(max-width: 768px) {
+  .card {
+    width: 80%;
+  }
 }

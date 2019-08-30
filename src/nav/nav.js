@@ -1,37 +1,47 @@
 import React, { Component } from 'react';
+import { Link, Route } from "react-router-dom";
 import './nav.css';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 
 function Title(props) {
   return (
-    <a className="navbar-brand" href="#">Blog</a>
+    <Link className="navbar-brand" to="/">Blog</Link>
   )
 }
 
 function Item(props) {
-  const { text, onClick } = props;
+  const { text, exact, to } = props;
   return (
-    <li className="nav-item" onClick={onClick}>
-      <a className="nav-link" href="#">{text}</a>
-    </li>
+    <Route
+      path={to}
+      exact={exact}
+      children={({ match }) => (
+        <li className={match ? "active" : ""}>
+          {match ? "> " : ""}
+          <Link to={to}>{text}</Link>
+        </li>
+      )}
+    />
   )
 }
 
-class Nav extends Component {
+class BlogNavbar extends Component {
   render() {
-    const { handleActive } = this.props
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <Title />
-        <div className="collapse navbar-collapse" id="navbarColor02">
-          <ul className="navbar-nav mr-auto">
-            <Item text='Home' onClick={() => handleActive('Home')}/>
-            <Item text='Posts' onClick={() => handleActive('Posts')}/>
-            <Item text='About' onClick={() => handleActive('About')}/>
-          </ul>
-        </div>
-      </nav>
+      <Navbar bg="dark" expand="lg">
+        <Title/>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto">
+            <Item text="Home" to="/" exact={true}>Home</Item>
+            <Item text="Posts" to="/posts">Posts</Item>
+            <Item text="About" to="/about">About</Item>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
     );
   }
 }
 
-export default Nav;
+export default BlogNavbar;

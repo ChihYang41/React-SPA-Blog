@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import axios from 'axios';
 import './post.css';
 
 function Card(props) {
-  const { posts, onClick } = props;
+  const { posts, history } = props;
   return (
     posts.map(post => {
       return (
-        <div key={post.id} className="card text-white bg-dark mb-3" onClick={() => onClick(post.id)}>
+        <div key={post.id} className="card text-white bg-dark mb-3" onClick={() => {
+          history.push('/posts/' + post.id)
+        }}>
           <div className="card-header">{post.id}</div>
           <div className="card-body">
             <h4 className="card-title">{post.title}</h4>
@@ -14,81 +18,39 @@ function Card(props) {
           </div>
         </div>
       )
-    }))
+    })
+  )
 }
 
-class Post extends Component {
+class Posts extends Component {
   constructor(props) {
     super(props);
     this.state = {
       posts: [],
-      singlePostId: null,
-      singlePost: {},
     }
   }
 
   componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/posts')
-      .then(res => res.json())
-      .then(data => this.setState({
-        posts: data
-      }))
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.singlePostId !== this.state.singlePostId && this.state.singlePostId !== null) {
-      this.getSinglePost()
-    }
-  }
-
-  goBack = () => {
-    this.setState({
-      singlePostId: null,
-      singlePost: {},
-    })
-  }
-
-  setId = (id) => {
-    this.setState({
-      singlePostId: id
-    })
-  }
-
-  getSinglePost = () => {
-    fetch('https://jsonplaceholder.typicode.com/posts/' + this.state.singlePostId)
-      .then(res => res.json())
-      .then(data => this.setState({
-        singlePost: data
-      }))
+    axios.get('https://qootest.com/posts')
+      .then(res => {
+        this.setState({
+          posts: res.data
+        })
+      })
   }
 
   render() {
-    const { posts, singlePostId, singlePost } = this.state;
+    const { posts } = this.state;
+    const { history } = this.props;
     return (
       <div>
         <h2>Posts</h2>
         <div className="post-list">
-            {
-              !singlePostId &&
-              <Card posts={posts} onClick={this.setId} key={posts.id}/>
-            }
-            {
-              singlePostId &&
-              <div>
-                <h2>{singlePost.title}</h2>
-                <p className="card-text">{singlePost.body}</p>
-              </div>
-            }
-            {
-              singlePostId &&
-              <div>
-                <button type="button" className="btn btn-outline-secondary" onClick={this.goBack}>Go back</button>
-              </div>
-            }
+          <Card posts={posts} key={posts.id} history={history}/>
         </div>
       </div>
     );
   }
 }
 
-export default Post;
+export default withRouter(Posts);
