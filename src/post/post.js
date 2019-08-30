@@ -9,7 +9,7 @@ function Card(props) {
     posts.map(post => {
       return (
         <div key={post.id} className="card text-white bg-dark mb-3" onClick={() => {
-          history.push('/posts/' + post.id)
+          history.push('/React-SPA-Blog/posts/' + post.id)
         }}>
           <div className="card-header">{post.id}</div>
           <div className="card-body">

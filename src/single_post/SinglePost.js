@@ -39,7 +39,7 @@ class Posts extends Component {
           <p className="card-content">{singlePost.body}</p>
         </div>
         <div>
-          <Link to='/posts' className="btn btn-outline-secondary"> Go back </Link>
+          <Link to='/React-SPA-Blog/posts' className="btn btn-outline-secondary"> Go back </Link>
         </div>
       </div>
     );

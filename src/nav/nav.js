@@ -26,22 +26,20 @@ function Item(props) {
   )
 }
 
-class BlogNavbar extends Component {
-  render() {
-    return (
-      <Navbar bg="dark" expand="lg">
-        <Title/>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <Item text="Home" to="/" exact={true}>Home</Item>
-            <Item text="Posts" to="/posts">Posts</Item>
-            <Item text="About" to="/about">About</Item>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
-    );
-  }
+function BlogNavbar() {
+  return (
+    <Navbar bg="dark" expand="lg">
+      <Title/>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="mr-auto">
+          <Item text="Home" to="/React-SPA-Blog/" exact={true}>Home</Item>
+          <Item text="Posts" to="/React-SPA-Blog/posts">Posts</Item>
+          <Item text="About" to="/React-SPA-Blog/about">About</Item>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+  );
 }
 
 export default BlogNavbar;

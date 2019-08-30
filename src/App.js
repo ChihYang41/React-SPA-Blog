@@ -19,10 +19,10 @@ class App extends Component {
         <div className="App">
           <BlogNavbar/>
           <div className="main-page">
-            <Route exact path="/" component={Home} />
-            <Route exact path="/posts" component={Posts} />
-            <Route path="/about" component={About} />
-            <Route path="/posts/:id" component={SinglePost} />
+            <Route exact path="/React-SPA-Blog/" component={Home} />
+            <Route exact path="/React-SPA-Blog/posts" component={Posts} />
+            <Route path="/React-SPA-Blog/about" component={About} />
+            <Route path="/React-SPA-Blog/posts/:id" component={SinglePost} />
           </div>
         </div>
       </Router>
