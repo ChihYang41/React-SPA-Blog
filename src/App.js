@@ -2,17 +2,13 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './bootstrap.min.css'
 import './App.css';
-import BlogNavbar from './nav/nav.js';
-import About from './about/about.js';
-import Home from './home/home.js';
-import Posts from './post/post.js';
-import SinglePost from './single_post/SinglePost.js'
+import BlogNavbar from './components/nav/nav.js';
+import NewPostContainer from './containers/NewPostContainer.js';
+import Home from './components/home/home.js';
+import PostsContainer from './containers/PostsContainer.js';
+import SinglePostContainer from './containers/SinglePostContainer.js'
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <Router>
@@ -20,9 +16,9 @@ class App extends Component {
           <BlogNavbar/>
           <div className="main-page">
             <Route exact path="/React-SPA-Blog/" component={Home} />
-            <Route exact path="/React-SPA-Blog/posts" component={Posts} />
-            <Route path="/React-SPA-Blog/about" component={About} />
-            <Route path="/React-SPA-Blog/posts/:id" component={SinglePost} />
+            <Route exact path="/React-SPA-Blog/posts" component={PostsContainer} />
+            <Route path="/React-SPA-Blog/NewPost" component={NewPostContainer} />
+            <Route path="/React-SPA-Blog/posts/:id" component={SinglePostContainer} />
           </div>
         </div>
       </Router>
