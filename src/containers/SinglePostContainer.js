@@ -11,7 +11,10 @@ const SinglePostContainer = (props) => {
 const mapStateToProps = (state) => {
   return {
     singlePost: state.singlePostReducer.singlePost,
-    isLoading: state.singlePostReducer.isPostRequesting
+    isLoadingPost: state.singlePostReducer.isPostRequesting,
+    isLoadingDeletePost: state.allPostsReducer.isLoadingDeletePost,
+    isLoadingEditPost: state.singlePostReducer.isLoadingEditPost,
+    editPostError: state.singlePostReducer.editPostError
   }
 }
 

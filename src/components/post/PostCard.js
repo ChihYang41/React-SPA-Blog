@@ -7,10 +7,9 @@ export default function PostCard({ posts, history }) {
         <div key={post.id} className="card text-white bg-dark mb-3" onClick={() => {
           history.push('/React-SPA-Blog/posts/' + post.id)
         }}>
-          <div className="card-header">{post.id}</div>
+
           <div className="card-body">
-            <h4 className="card-title">{post.title}</h4>
-            <p className="card-text">{post.body}</p>
+            <h4 className="card-title">{post.id}. {post.title}</h4>
           </div>
         </div>
       )

@@ -1,16 +1,17 @@
 import axios from 'axios';
 
 // action types
-export const CREATE_POST = 'CREATE_POST'
+export const ADD_POST = 'ADD_POST'
 export const DELETE_POST = 'DELETE_POST';
 export const EDIT_POST = 'EDIT_POST';
 export const GET_SINGLE_POST = 'GET_SINGLE_POST';
 export const GET_ALL_POSTS = 'GET_ALL_POSTS';
+export const GET_LATEST_POSTS = 'GET_LATEST_POSTS'
 
 // action creator
-export const createPost = (author, title, body) => {
+export const addPost = (author, title, body) => {
   return {
-    type: CREATE_POST,
+    type: ADD_POST,
     payload: axios.post('https://qootest.com/posts', {
       author, title, body
     })
@@ -43,7 +44,14 @@ export const getSinglePost = (id) => {
 export const getAllPosts = () => {
   return {
     type: GET_ALL_POSTS,
-    payload: axios.get('https://qootest.com/posts')
+    payload: axios.get('https://qootest.com/posts?_sort=id&_order=desc')
+  }
+}
+
+export const getLatestPosts = () => {
+  return {
+    type: GET_LATEST_POSTS,
+    payload: axios.get('https://qootest.com/posts?_sort=id&_order=desc&_limit=10')
   }
 }
 

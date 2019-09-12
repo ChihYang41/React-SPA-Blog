@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './NewPost.css';
+import Loading from '../utils/Loading'
 
 class NewPost extends Component {
   constructor(props) {
@@ -8,6 +9,13 @@ class NewPost extends Component {
       title: '',
       body: '',
       author: ''
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    const { history, isLoadingAddPost} = this.props
+    if (isLoadingAddPost !== prevProps.isLoadingAddPost && !isLoadingAddPost) {
+      history.push('/React-SPA-Blog/posts')
     }
   }
 
@@ -31,20 +39,20 @@ class NewPost extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { createPost, history } = this.props;
+    const { addPost } = this.props;
     const { author, title, body } = this.state
-    createPost(author, title, body);
+    addPost(author, title, body);
     this.setState({
       title: '',
       body: '',
       author: ''
     })
-    history.push('/React-SPA-Blog/posts')
   }
 
   render() {
-    const { title, body, author } = this.state
-    console.log(this.state)
+    const { title, body, author } = this.state;
+    const {isLoadingAddPost} = this.props;
+    if (isLoadingAddPost) return <Loading />
     return (
       <div>
         <h2>Write a Post</h2>

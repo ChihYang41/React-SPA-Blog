@@ -10,7 +10,11 @@ const PostsContainer = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    allPosts: state.AllPostsReducer.allPosts,
+    allPosts: state.allPostsReducer.allPosts,
+    isLoadingGetAllPosts: state.allPostsReducer.isLoadingGetAllPosts,
+    getAllPostsError: state.allPostsReducer.getAllPostsError,
+    deletePostError: state.allPostsReducer.deletePostError,
+    addPostError: state.allPostsReducer.addPostError
   }
 }
 

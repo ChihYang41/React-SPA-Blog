@@ -1,8 +1,10 @@
-import { GET_SINGLE_POST } from '../action';
+import { GET_SINGLE_POST, EDIT_POST } from '../action';
 
 const initState = {
   singlePost: {},
   isPostRequesting: false,
+  isLoadingEditPost: false,
+  editPostError: null
 };
 
 // reducers
@@ -23,6 +25,24 @@ export default function singlePostReducer(state = initState, action) {
       return {
         ...state,
         isPostRequesting: false,
+      }
+    case `${EDIT_POST}_PENDING`:
+      return {
+        ...state,
+        isLoadingEditPost: true,
+        editPostError: null
+      }
+    case `${EDIT_POST}_FULFILLED`:
+      return {
+        ...state,
+        singlePost: action.payload.data,
+        isLoadingEditPost: false
+      }
+    case `${EDIT_POST}_REJECTED`:
+      return {
+        ...state,
+        isLoadingEditPost: false,
+        editPostError: action.error
       }
     default:
       return state;

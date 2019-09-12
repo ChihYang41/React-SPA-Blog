@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import singlePostReducer from './singlePost';
-import AllPostsReducer from './getAllPosts';
+import allPostsReducer from './getAllPosts';
+import latestPostsReducer from './latestPosts';
 
 const reducer = combineReducers({
   singlePostReducer,
-  AllPostsReducer
+  allPostsReducer,
+  latestPostsReducer
 })
 
 export default reducer

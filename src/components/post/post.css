@@ -3,14 +3,14 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 20px auto;
+  margin: 0px auto;
+  padding: 20px;
 }
 
 .card {
   width: 80%;
-  margin-right: 20px;
   transition: 0.3s all;
-  height: 300px;
+  text-align: left;
 }
 
 .card:hover {
@@ -18,18 +18,22 @@
   transform: scale(1.05);
 }
 
-.card-header {
-  font-size: 24px;
+.card-text p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.card-text {
-  overflow : hidden;
-  text-overflow : ellipsis;
-  white-space : nowrap;
+.card-title {
+  margin-bottom: 0;
 }
 
 .post-list a {
   margin: 20px auto;
+}
+
+.alert .btn {
+  margin-top: 0px;
 }
 
 @media(max-width: 768px) {

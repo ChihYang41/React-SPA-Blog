@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
 import Home from '../components/home/home';
-import { GET_ALL_POSTS } from '../action';
+import { getLatestPosts } from '../action';
 
 const HomeContainer = (props) => {
   return (<Home {...props} />)
@@ -10,14 +10,15 @@ const HomeContainer = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    allPosts: state.AllPostsReducer.allPosts,
+    latestTenPosts: state.latestPostsReducer.latestTenPosts,
+    isLoadingGetLatestPosts: state.latestPostsReducer.isLoadingGetLatestPosts
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getAllPosts: () => {
-      dispatch(getAllPosts())
+    getLatestPosts: () => {
+      dispatch(getLatestPosts())
     }
   }
 }
