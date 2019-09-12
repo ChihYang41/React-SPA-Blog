@@ -5,14 +5,6 @@ import Loading from '../utils/Loading';
 import AlertDismissible from '../utils/Alert';
 
 class Posts extends Component {
-  constructor() {
-    super()
-    this.state = {
-      isDeleteSuccessfully: null,
-      isAddSuccessfully: null
-    }
-  }
-
   componentDidMount(prevProps) {
     const { getAllPosts } = this.props;
     getAllPosts();
