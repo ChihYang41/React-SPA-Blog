@@ -37,7 +37,7 @@ class SinglePost extends Component {
     }
 
     if (isLoadingDeletePost !== prevProps.isLoadingDeletePost && !isLoadingDeletePost) {
-      history.push('/React-SPA-Blog/posts')
+      history.push('/posts')
     }
 
     if (isLoadingEditPost !== prevProps.isLoadingEditPost && !isLoadingEditPost) {
@@ -53,8 +53,6 @@ class SinglePost extends Component {
     const { match, deletePost } = this.props;
     if (window.confirm(message)) {
       deletePost(match.params.id);
-    } else {
-      return null;
     }
   }
 
@@ -121,7 +119,7 @@ class SinglePost extends Component {
                 </Fragment>
             }
             <div className="back-btn-container">
-              <Link to='/React-SPA-Blog/posts' className="btn btn-info"> Go back </Link>
+              <Link to='/posts' className="btn btn-info"> Go back </Link>
             </div>
           </div>
         </div>

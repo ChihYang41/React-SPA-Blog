@@ -11,14 +11,14 @@ import SinglePostContainer from './containers/SinglePostContainer.js'
 class App extends Component {
   render() {
     return (
-      <Router>
+      <Router basename="/React-SPA-Blog">
         <div className="App">
           <BlogNavbar/>
           <div className="main-page">
-            <Route exact path="/React-SPA-Blog/" component={HomeCotainer} />
-            <Route exact path="/React-SPA-Blog/posts" component={PostsContainer} />
-            <Route path="/React-SPA-Blog/newPost" component={NewPostContainer} />
-            <Route path="/React-SPA-Blog/posts/:id" component={SinglePostContainer} />
+            <Route exact path="/" component={HomeCotainer} />
+            <Route exact path="/posts" component={PostsContainer} />
+            <Route path="/newPost" component={NewPostContainer} />
+            <Route path="/posts/:id" component={SinglePostContainer} />
           </div>
         </div>
       </Router>

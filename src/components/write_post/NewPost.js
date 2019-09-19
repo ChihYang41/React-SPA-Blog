@@ -15,7 +15,7 @@ class NewPost extends Component {
   componentDidUpdate(prevProps) {
     const { history, isLoadingAddPost} = this.props
     if (isLoadingAddPost !== prevProps.isLoadingAddPost && !isLoadingAddPost) {
-      history.push('/React-SPA-Blog/posts')
+      history.push('/posts')
     }
   }
 

@@ -5,7 +5,7 @@ export default function PostCard({ posts, history }) {
     posts.map(post => {
       return (
         <div key={post.id} className="card text-white bg-dark mb-3" onClick={() => {
-          history.push('/React-SPA-Blog/posts/' + post.id)
+          history.push('/posts/' + post.id)
         }}>
 
           <div className="card-body">
