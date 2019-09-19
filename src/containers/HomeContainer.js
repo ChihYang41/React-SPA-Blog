@@ -10,8 +10,8 @@ const HomeContainer = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    latestTenPosts: state.latestPostsReducer.latestTenPosts,
-    isLoadingGetLatestPosts: state.latestPostsReducer.isLoadingGetLatestPosts
+    latestTenPosts: state.home.latestTenPosts,
+    isLoadingGetLatestPosts: state.home.isLoadingGetLatestPosts
   }
 }
 

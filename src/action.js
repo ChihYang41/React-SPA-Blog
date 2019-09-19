@@ -6,7 +6,8 @@ export const DELETE_POST = 'DELETE_POST';
 export const EDIT_POST = 'EDIT_POST';
 export const GET_SINGLE_POST = 'GET_SINGLE_POST';
 export const GET_ALL_POSTS = 'GET_ALL_POSTS';
-export const GET_LATEST_POSTS = 'GET_LATEST_POSTS'
+export const GET_LATEST_POSTS = 'GET_LATEST_POSTS';
+export const REQUEST_SUCCESS = 'REQUEST_SUCCESS';
 
 // action creator
 export const addPost = (author, title, body) => {
@@ -55,3 +56,9 @@ export const getLatestPosts = () => {
   }
 }
 
+export const setMessage = (message) => {
+  return {
+    type: REQUEST_SUCCESS,
+    message
+  }
+}

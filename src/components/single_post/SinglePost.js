@@ -5,7 +5,9 @@ import Loading from '../utils/Loading';
 import EditItem from './EditItem';
 import Markdown from 'react-markdown';
 import CodeBlock from "../utils/CodeBlock";
-import AlertDismissible from '../utils/Alert'
+import AlertDismissible from '../utils/Alert';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class SinglePost extends Component {
   constructor(props) {
@@ -25,7 +27,7 @@ class SinglePost extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { match, history, isLoadingDeletePost, isLoadingEditPost, getSinglePost } = this.props;
+    const { match, history, isLoadingDeletePost, isLoadingEditPost, getSinglePost, setMessage } = this.props;
 
     if (prevProps !== this.props) {
       const { singlePost } = this.props
@@ -37,6 +39,7 @@ class SinglePost extends Component {
     }
 
     if (isLoadingDeletePost !== prevProps.isLoadingDeletePost && !isLoadingDeletePost) {
+      setMessage("刪除成功");
       history.push('/posts')
     }
 
@@ -90,8 +93,8 @@ class SinglePost extends Component {
     const error = editPostError;
     return (
       <div>
-        { ifEditSuccessfully && <AlertDismissible alertTitle={'編輯成功！'} alertContent={'你很棒！文章 bang 不一樣了！'}/> }
-        { error && <AlertDismissible alertTitle={'發生錯誤！'} alertContent={'麻煩重新操作一次。'}/> }
+        { ifEditSuccessfully && <AlertDismissible alertTitle={'編輯成功！'} alertContent={'你很棒！文章 bang 不一樣了！'} alertType={"success"}/> }
+        { error && <AlertDismissible alertTitle={'發生錯誤！'} alertContent={'麻煩重新操作一次。'} alertType={"danger"}/> }
         <div className="content">
           {
             isEditing ?

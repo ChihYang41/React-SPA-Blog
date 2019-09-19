@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Alert from 'react-bootstrap/Alert';
 
-export default function AlertDismissible({alertTitle, alertContent}) {
+export default function AlertDismissible({alertTitle, alertContent, alertType}) {
   const [show, setShow] = useState(true);
 
   useEffect(
@@ -14,7 +14,7 @@ export default function AlertDismissible({alertTitle, alertContent}) {
   )
   return (
     <>
-      <Alert show={show} onClose={() => setShow(false)} variant="success" dismissible>
+      <Alert show={show} onClose={() => setShow(false)} variant={alertType} dismissible>
         <Alert.Heading>{alertTitle}</Alert.Heading>
         <p>
           {alertContent}

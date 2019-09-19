@@ -13,9 +13,10 @@ class NewPost extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { history, isLoadingAddPost} = this.props
+    const { history, isLoadingAddPost, setMessage} = this.props
     if (isLoadingAddPost !== prevProps.isLoadingAddPost && !isLoadingAddPost) {
-      history.push('/posts')
+      setMessage("新增成功");
+      history.push('/posts');
     }
   }
 

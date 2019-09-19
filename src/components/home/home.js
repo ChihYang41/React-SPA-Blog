@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './home.css';
 import Loading from '../utils/Loading';
-import PostCard from '../post/PostCard'
+import PostCard from '../post/PostCard';
+import PropTypes from 'prop-types';
 
 class Home extends Component {
   componentDidMount() {
@@ -30,7 +31,10 @@ class Home extends Component {
       </div>
     );
   }
+}
 
+Home.propTypes = {
+  getLatestPosts: PropTypes.func,
 }
 
 export default Home;
